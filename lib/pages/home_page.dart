@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/drawer_list.dart';
 import 'package:flutter_app/pages/hello_gridview.dart';
 import 'package:flutter_app/pages/hello_listview.dart';
-import 'package:flutter_app/pages/hello_page1.dart';
 import 'package:flutter_app/pages/hello_page2.dart';
 import 'package:flutter_app/pages/hello_page3.dart';
 import 'package:flutter_app/utils/nav.dart';
@@ -45,15 +44,6 @@ class HomePage extends StatelessWidget {
                 _onClickFab();
               },
             ),
-            SizedBox(
-              width: 8,
-            ),
-            FloatingActionButton(
-              child: Icon(Icons.favorite),
-              onPressed: () {
-                _onClickFab();
-              },
-            ),
           ],
         ),
         drawer: DrawerList(),
@@ -61,7 +51,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _body(BuildContext context) {
+  _body(context) {
     return Container(
       padding: EdgeInsets.only(top: 16),
       color: Colors.white,
@@ -179,7 +169,9 @@ class HomePage extends StatelessWidget {
   }
 
   void _onClickNavegacao(BuildContext context, Widget page) async {
-    var param = await push(context, page);
+    String s = await push(context, page);
+
+    print(">> $s");
   }
 
   _onClickSnack(context) {
